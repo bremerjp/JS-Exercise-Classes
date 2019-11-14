@@ -111,8 +111,8 @@ class Car {
 class Lambdasian {
   constructor(attributes) {
     this.name = attributes.name,
-    this.age = attributes.age,
-    this.location = attributes.location
+      this.age = attributes.age,
+      this.location = attributes.location
   }
   speak() {
     return `Hello my name is ${this.name}, I am from ${this.location}`
@@ -137,8 +137,8 @@ class Instructor extends Lambdasian {
   constructor(attributes) {
     super(attributes);
     this.specialty = attributes.specialty,
-    this.favLanguage = attributes.favLanguage,
-    this.catchPhrase = attributes.catchPhrase
+      this.favLanguage = attributes.favLanguage,
+      this.catchPhrase = attributes.catchPhrase
   }
   demo(subject) {
     return `Today we are learning about ${subject}`;
@@ -146,7 +146,13 @@ class Instructor extends Lambdasian {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
-} 
+  //Stretch
+  updatePoints(student) {
+    student.grade += Math.floor(Math.random() * 100);
+    return `The grade for ${student.name}'s grade is ${student.grade}`;
+  }
+  //Stretch
+}
 
 /*
   TASK 5
@@ -167,8 +173,11 @@ class Student extends Lambdasian {
   constructor(attributes) {
     super(attributes);
     this.previousBackground = attributes.previousBackground,
-    this.className = attributes.className,
-    this.favSubjects = attributes.favSubjects
+      this.className = attributes.className,
+      this.favSubjects = attributes.favSubjects,
+      //Stretch
+      this.grade = Math.round((Math.random() * 100))
+    //Stretch
   }
   listSubjects() {
     return `Loving ${this.favSubjects}!`
@@ -179,6 +188,14 @@ class Student extends Lambdasian {
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`
   }
+  //Stretch
+  graduate() {
+    if (this.grade > 70) {
+      return `Your grade is ${this.grade}. You will graduate!`;
+    }
+    else return `Your Grade is ${this.grade}. You will not graduate!`;
+  }
+  //Stretch
 }
 
 /*
@@ -198,7 +215,7 @@ class ProjectManager extends Instructor {
   constructor(attributes) {
     super(attributes);
     this.gradClassName = attributes.gradClassName,
-    this.favInstructor = attributes.favInstructor
+      this.favInstructor = attributes.favInstructor
   }
   standUp(slackChannel) {
     return `${this.name} announces to ${slackChannel}, @channel standup times`;
